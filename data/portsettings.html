@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <Title>
+        D'KuVa IOT Solutions
+    </Title>
+    <script type="text/javascript" src="index.js"> </script>
+    <link rel="stylesheet" type="text/css" href="portsettings.css">
+</head>
+<Body onload="loadportsettingpage()">
+
+    <table border="1" align="center" width=100% height=auto cellspacing="0">
+        <tr>
+            <td>
+                <p id="p1">
+                    <b><a href="index.html">Login Page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="wifisettings.html">Wifi settings &nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="mqttsettings.html">MQTT Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="serversettings.html">Database Server Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="portsettings.html">Port settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="generalsettings.html">General settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="switch.html">Switch Page &nbsp;&nbsp;&nbsp;</a></b>
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor=red height=5%>
+            <td>
+                <p></p>
+            </td>
+        </tr>
+        <tr bgcolor=White height=7% align="center">
+            <td style="font: 4em sans-serift;"><b>D'KuVa IOT Solutions</b></td>
+        </tr>
+
+        <tr bgcolor=green height=5% align="center" style="font: 2em sans-serift;">
+            <td><b>Port Settings</b></td>
+        </tr>
+        <tr>
+            <td align="Centre" width=auto>
+                <centre>
+                    <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">Pre
+                        Installed Configuration</p><br>
+                    <table id="mystoredport" border="1" align="center" width=100% height=98% bgcolor="pink">
+                        <tr>
+                            <th>Port Number</th>
+                            <th>GPIO</th>
+                            <th>Status</th>
+                            <th>Device Control</th>
+                            <th>Server</th>
+                            <th>Switch/ Dimmer/ Sensor</th>
+                            <th>Speed</th>
+                            <th>Connected Device </th>
+                            <th>Area</th>
+                            <th>Timer</th>
+                            <th>On Time</th>
+                            <th>Off Time/Duration</th>
+                            <th>Days</th>
+                            <th align="center"> Topic</th>
+                        </tr>
+                    </table>
+                    <br>
+                    <button id="Reload_chip" type "submit">Reload Data from Chip</button>&nbsp;&nbsp;
+                    <button id="update_data_on_server" type "submit"> Update data on server</button><br>
+                    <p></p>
+
+                </centre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p id="chip_site_id" value="Site MAC Address"
+                style="font-size:26; text-align: center ; color:red; margin:10px;">10:23:a3:4f:45:cf </p>
+            <label id="localsiteid" style="color:red; margin:10px;"> Site_Name</label>
+
+            <Input id="housename" style="margin:5px" type="text" placeholder="House Name" name="house_name" value="My Home">
+            
+            <table id="myTablex" border="2" bgcolor="lightpink">
+                <tr>
+
+                    <th>Port Number</th>
+                    <th>GPIO</th>
+                    <th>Status</th>
+                    <th>Device Control</th>
+                    <th>Server</th>
+                    <th>Switch/ Dimmer/ Sensor</th>
+                    <th>Speed</th>
+                    <th>Connected Device </th>
+                    <th>Area</th>
+                    <th>Timer</th>
+                    <th>On Time</th>
+                    <th>Off Time/ Duration</th>
+                    <th>Days</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="portno" style="margin:5px" name="">
+                            <option value="port1">Port 1</option>
+                            <option value="port2">Port 2</option>
+                            <option value="port3">Port 3</option>
+                            <option value="port4">Port 4</option>
+                            <option value="port5">Port 5</option>
+                            <option value="port6">Port 6</option>
+                            
+
+                        </select>
+                    </td>
+                    <td>
+                        <select id="gpionumber" style="margin:5px" name="">
+                            <option value="0">GPIO0</option>
+                            <option value="1">GPIO1</option>
+                            <option value="2">GPIO2</option>
+                            <option value="3">GPIO3</option>
+                            <option value="4">GPIO4</option>
+                            <option value="5">GPIO5</option>
+                            <option value="6">GPIO6</option>
+                            <option value="7">GPIO7</option>
+                            <option value="8">GPIO8</option>
+                            <option value="9">GPIO9</option>
+                            <option value="10">GPIO10</option>
+                            <option value="11">GPIO11</option>
+                            <option value="12">GPIO12</option>
+                            <option value="13">GPIO13</option>
+                            <option value="14">GPIO14</option>
+                            <option value="15">GPIO15</option>
+                            <option value="16">GPIO16</option>
+                            <option value="17">GPIO17</option>
+                            <option value="18">GPIO18</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="gpioenable" style="margin:5px" name="">
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="devicecontrol" onchange="devcontrol()" style="margin:5px" name="">
+                            <option value="Direct">Direct</option>
+                            <option value="Server">Server</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="remotecontrol" onchange="selectser1()" style="margin:5px" name="">
+                            <option value="None">None</option>
+                            <option value="MQTT">MQTT</option>
+                         
+                            
+                        </select>
+                    </td>
+                    <td>
+                        <select id="gpiotype" onchange="butsel()" style="margin:5px" name="">
+                            <option value="Switch">Switch</option>
+                            <option value="Dimmer">Dimmer</option>
+                            <option value="Sensor">Sensor</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="speed" onchange="selspeed1()" style="margin:5px" name="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Itemname" onchange="butsel1()" style="margin:5px" name="itemn">
+                            
+                        </select>
+                        <select id="numberitem" style="margin:5px" name="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+                    </td>
+                    <td>
+                        <select id="area" style="margin:5px" name="" sort="ascending">
+                            
+                        </select>
+                        <select id="numberarea" style="margin:5px" name="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="timer" onchange="selecttimertype()" style="margin:5px" name="">
+                            <option value="OFF">OFF</option>
+                            <option value="On/Off Time">On/Off Time</option>
+                            <option value="OnTime-Duration">OnTime-Duration</option>
+
+                        </select>
+                    </td>
+                    <td>
+                        <Input id="ontime" style="margin:5px" type="time" placeholder="ON Time" name="ON Time" min="00:00" max="23:59">
+                    </td>
+                    <td>
+                        <Input id="offtime" style="margin:5px" type="time" placeholder="OFF TIME" name="OFF TIME"min="00:00" max="23:59">
+                    </td>
+                    <td>
+                        <p id="days">
+
+                            <input type="checkbox" id="dayonce" onclick="dailytimer2()" name="dayonce" value="Once">
+                            Once<br>
+                            <input type="checkbox" id="dayall" onclick="dailytimer()" name="dayall" value="Daily"> Daily
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="13" align="center">
+                        <button onclick="chgtopicdata()" id="insert_record">Update Record</button>
+                    </td>
+
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr>
+            <td align="Centre" width=auto>
+                <centre>
+                    <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">New/Update Configuration</p><br>
+                    <table width=100% id="myTable4" border="2" bgcolor="lightpink">
+                        
+                            <th>Port Number</th>
+                            <th>GPIO</th>
+                            <th>Status</th>
+                            <th>Device Control</th>
+                            <th>Server</th>
+                            <th>Switch/ Dimmer/ Sensor</th>
+                            <th>Speed</th>
+                            <th>Connected Device </th>
+                            <th>Area</th>
+                            <th>Timer</th>
+                            <th>On Time</th>
+                            <th>Off Time/ Duration</th>
+                            <th>Days</th>
+                            <th align="center"> Topic</th>
+                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td> </tr>
+                        
+                    </table> <br>
+                    <button id="UpdateChip" onclick="updateportsettings()">Update Data in Chip</button>&nbsp;&nbsp;
+                  <!--  <button id="cleardata" onclick="cleartable()">Clear Data</button>&nbsp;&nbsp;
+            -->
+                </centre>
+            </td>
+        </tr>
+        <tr bgcolor=lightgrey height=13%>
+            <td>
+                <p>
+                    <center>Software &copy; of D'KuVa IOT Solutions with &reg; Address at Batala.
+                        <br>
+                        D'KuVa IOT Solutions is optimized for learning, testing, training and develoing IOT
+                            Products. While using this site, you agree to have read and accepted our terms of use,
+                            cookie and privacy policy &copy; 2019-2099 by Kriti Mohan.<br> All Rights Reserved.
+                            Powered by A-Z vmp Corp.</center>
+                </p>
+            </td>
+        </tr>
+    </table>
+</Body>
+</html>

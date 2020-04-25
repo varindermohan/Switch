@@ -1,0 +1,19 @@
+#p1 {
+    text-align: center;
+    border-radius: 10px;
+    background-color: lightyellow;
+    border: 2px solid red;
+}
+a {
+    text-decoration: none;
+    color:red;
+    background-color: lightyellow; 
+}
+a:hover {
+    background-color:red;
+    text-decoration: underline;
+    color: lightyellow;
+    font-size: 20px;
+
+
+}

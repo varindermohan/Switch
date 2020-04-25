@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <Title>
+        D'KuVa IOT Solutions
+    </Title>
+    <script type="text/javascript" src="index.js"> </script>
+    <link rel="stylesheet" type="text/css" href="portsettings.css">
+</head>
+<Body onload="loadserverpage()">
+
+    <table border="1" align="center" width=100% height=auto cellspacing="0">
+        <tr>
+            <td colspan="2">
+
+                <p id="p1">
+                    <b><a href="index.html">Login Page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="wifisettings.html">Wifi settings &nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="mqttsettings.html">MQTT Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="serversettings.html">Database Server Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="portsettings.html">Port settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="generalsettings.html">General settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="switch.html">Switch Page &nbsp;&nbsp;&nbsp;</a></b>
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor=red height=5%>
+            <td colspan="2"> &nbsp;</td>
+        </tr>
+        <tr bgcolor=White height=7% align="center">
+            <td colspan="2" style="font: 4em sans-serift;"><b>D'KuVa IOT Solutions</b></td>
+        </tr>
+
+        <tr bgcolor=green height=5% align="center" style="font: 2em sans-serift;">
+            <td colspan="2"><b>Database Server Settings</b></td>
+
+        </tr>
+        <tr>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">Local
+                    DataBase Server</p><br>
+
+                <center>
+                    <label style="color:red; margin:10px;">Enable</label><br>
+                    <select id="serverenablelocal" style="margin:5px" name="">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+                    <label style="color:red; margin:10px;"> Server (Address)</label><br>
+                    <Input id="serverurllocal" style="margin:5px" type="text" placeholder="URL Name"><br>
+                    <label style="color:red; margin:10px;"> Server (Access Token)<label><br>
+                            <Input id="serveraccesstokenlocal" style="margin:5px" type="text"
+                                placeholder="Access Token"><br>
+                            <label style="color:red; margin:10px;"> Server (User Name)</label><br>
+                            <Input id="serverusernamelocal" style="margin:5px" type="text" placeholder="User Name"><br>
+                            <label style="color:red; margin:10px;"> Server (Password)<label><br>
+                                    <Input id="serverpasswordlocal" style="margin:5px" type="text"
+                                        placeholder="Password"><br><br>
+                </center>
+                <br>
+            </td>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">Remote
+                    Database Server</p><br>
+
+                <center>
+                    <label style="color:red; margin:10px;">Enable</label><br>
+                    <select id="serverenableremote" style="margin:5px" name="">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+                    <label style="color:red; margin:10px;"> Server (Address)</label><br>
+                    <Input id="serverurlremote" style="margin:5px" type="text" placeholder="URL Name"><br>
+                    <label style="color:red; margin:10px;"> Server (Access Token)<label><br>
+                            <Input id="serveraccesstokenremote" style="margin:5px" type="text"
+                                placeholder="Access Token"><br>
+                            <label style="color:red; margin:10px;"> Server (User Name)</label><br>
+                            <Input id="serverusernameremote" style="margin:5px" type="text" placeholder="User Name"><br>
+                            <label style="color:red; margin:10px;"> Server (Password)<label><br>
+                                    <Input id="serverpasswordremote" style="margin:5px" type="text"
+                                        placeholder="Password"><br><br>
+                </center>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 align="center"> <br>
+                <button id="saveservertbutton" onclick="saveserverdata()"> Save </button>
+                <button id="resetserverbutton" onclick="resetserverata()"> Reset </button>
+                <br> <br></td>
+        </tr>
+    </table>
+</Body>
+</html>

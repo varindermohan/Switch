@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <Title>
+        D'KuVa IOT Solutions
+    </Title>
+    <script type="text/javascript" src="index.js"> </script>
+    <link rel="stylesheet" type="text/css" href="portsettings.css">
+</head>
+<Body onload="loadmqttpage()">
+    <table border="1" align="center" width=100% height=auto cellspacing="0">
+        <tr>
+            <td colspan="2">
+                <p id="p1">
+                    <b><a href="index.html">Login Page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="wifisettings.html">Wifi settings &nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="mqttsettings.html">MQTT Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="serversettings.html">Database Server Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="portsettings.html">Port settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="generalsettings.html">General settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="switch.html">Switch Page &nbsp;&nbsp;&nbsp;</a></b>
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor=red height=5%>
+            <td colspan="2"> &nbsp;</td>
+        </tr>
+        <tr bgcolor=White height=7% align="center">
+            <td colspan="2" style="font: 4em sans-serift;"><b>D'KuVa IOT Solutions</b></td>
+        </tr>
+        <tr bgcolor=green height=5% align="center" style="font: 2em sans-serift;">
+            <td colspan="2"><b>MQTT Settings</b></td>
+        </tr>
+        <tr>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">Local
+                    MQTT Server</p><br>
+                <center>
+                    <label style="color:red; margin:10px;">Enable</label><br>
+                 <!--   <select onchange="enselect()"  id="mqttenablelocal" style="margin:5px" name=""> -->
+                        <select id="mqttenablelocal" style="margin:5px" name="">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+                    <label style="color:red; margin:10px;"> MQTT Server Address</label><br>
+                    <Input id="mqtturllocal" style="margin:5px" type="text" placeholder="URL Name"><br>
+                    <label style="color:red; margin:10px;"> MQTT Port Number </label><br>
+                    <Input id="mqttportnumlocal" style="margin:5px" type="text" placeholder="1883" ,value="1883" innerHTML="1883"><br>
+                    <input onclick="selauth()" id="Auth" type="radio" name="authentication" value="">No Authentication</input>
+                    <input onclick="selauth()" id="Auth1" type="radio" name="authentication" value="">Authentication</input><br><br>
+                  
+
+                    <label id="lblusna" style="color:red; margin:10px;">User Name</label><br>
+                    <Input id="mqttusernamelocal" style="margin:5px" type="text" placeholder="User Name"><br>
+                    <label id="lblpass" style="color:red; margin:10px;">Password</label><br>
+                    <Input id="mqttpasswordlocal" style="margin:5px" type="text" placeholder="Password"><br><br>
+                </center>
+                <br>
+            </td>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:blueviolet; margin:10px;">Remote
+                    MQTT Server</p><br>
+                <center>
+                    <label style="color:red; margin:10px;">Enable</label><br>
+                <!--    <select onchange="enselect1()" id="mqttenableremote" style="margin:5px" name="">-->
+                    <select  id="mqttenableremote" style="margin:5px" name="">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+                    <label style="color:red; margin:10px;"> MQTT Server Address</label><br>
+                    <Input id="mqtturlremote" style="margin:5px" type="text" placeholder="URL Name"><br>
+                    <label style="color:red; margin:10px;"> MQTT Port Number</label><br>
+                    <Input id="mqttportnumremote" style="margin:5px" type="text" placeholder="1883",value="1883" innerHTML="1883"><br>
+                    <input onclick="selauth1()" id="Auth2" type="radio" name="authentication1" value="">No Authentication</input>
+                    <input onclick="selauth1()" id="Auth3" type="radio" name="authentication1" value=""> Authentication</input><br><br>
+                    <label id="lblusna1" style="color:red; margin:10px;">User Name</label><br>
+                    <Input id="mqttusernameremote" style="margin:5px" type="text" placeholder="User Name"><br>
+                    <label id="lblpass1" style="color:red; margin:10px;">Password</label><br>
+                    <Input id="mqttpasswordremote" style="margin:5px" type="text" placeholder="Password"><br><br>
+                </center>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 align="center"> <br>
+                <button id="savemqttbutton" onclick="savemqttdata()"> Save </button>
+                <button id="resetmqttbutton" onclick="resetmqttdata()"> Reset </button>
+                <br> <br></td>
+        </tr>
+    </table>
+</Body>
+</html>

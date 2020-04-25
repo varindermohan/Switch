@@ -1,0 +1,16 @@
+{
+    "port_no": "port3",
+    "gpio": "13",
+    "enable_status": "Enable",
+    "control": "Server",
+    "server": "MQTT",
+    "type_of_pin": "Switch",
+    "speed": "5",
+    "connected_device": "Plug-1",
+    "area": "Living Area-1",
+    "timer_type": "OFF",
+    "on_time": "None",
+    "off_time_duration": "None",
+    "days": "0",
+    "mqtt_topic": "84:F3:EB:ED:F0:EE/My_Home1/Living Area/1/Plug/1"
+}

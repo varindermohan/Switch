@@ -1,0 +1,348 @@
+{
+    "chip_data": {
+        "mac_id": "AA:BB:CC:DD:EE:FF",
+        "site_name": "Room1",
+        "serial_speed": 115200,
+        "local_server": {
+            "url": "192.168.1.100",
+            "access_token": "5678abcd"
+        },
+        "remote_server": {
+            "url": "varinder.com",
+            "access_token": "1234abcd"
+        },
+        "stored_ssid": [
+            {
+                "ssid": "storedNet Plus",
+                "password": "Bsnl@123",
+                "priority": 1
+            },
+            {
+                "ssid": "storedITI",
+                "password": "Bsnl@1234",
+                "priority": 2
+            },
+            {
+                "ssid": "storedINTEX",
+                "password": "Bsnl@12345",
+                "priority": 3
+            },
+            {
+                "ssid": "storedSamsung",
+                "password": "Bsnl@123456",
+                "priority": 4
+            },
+            {
+                "ssid": "storedFTTH",
+                "password": "FTTH123",
+                "priority": 5
+            }
+        ],
+        "detected_ssid": [
+            {
+                "ssid": "detectedNet Plus",
+                "password": "Bsnl@123",
+                "type": "open"
+            },
+            {
+                "ssid": "detectedITI",
+                "password": "Bsnl@1234",
+                "type": "open"
+            },
+            {
+                "ssid": "detectedINTEX",
+                "password": "Bsnl@12345",
+                "type": "open"
+            },
+            {
+                "ssid": "detectedSamsung",
+                "password": "Bsnl@123456",
+                "type": "*"
+            },
+            {
+                "ssid": "detectedFTTH",
+                "password": "FTTH123",
+                "type": "*"
+            }
+        ],
+        "local_mqtt_server": {
+            "url": "192.168.1.110",
+            "user_name": "administrator1",
+            "password": "password1",
+            "port": 1883
+        },
+        "remote_mqtt_server": {
+            "url": "ubidots.com",
+            "user_name": "administrator2",
+            "password": "password2",
+            "port": 1883
+        },
+        "port1": {
+            "gpio": "gpio1",
+            "enabled": true,
+            "pin": "p1",
+            "topic": "topic1",
+            "type_of_pin": "onoff",
+            "alarm": "critical",
+            "time": [
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        "port2": {
+            "gpio": "gpio2",
+            "enabled": true,
+            "pin": "p2",
+            "topic": "topic2",
+            "typeofpin": "dimmer",
+            "alarm": "normal",
+            "time": [
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        "port3": {
+            "gpio": "gpio3",
+            "enabled": true,
+            "pin": "p3",
+            "topic": "topic3",
+            "typeofpin": "onoff",
+            "alarm": "major",
+            "time": [
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        "port4": {
+            "gpio": "gpio4",
+            "enabled": true,
+            "pin": "p4",
+            "topic": "topic4",
+            "typeofpin": "onoff",
+            "alarm": "minor",
+            "time": [
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "true",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                },
+                {
+                    "on_off_time": "false",
+                    "on_time": "time_on",
+                    "off_time": "time_off",
+                    "days": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ]
+                }
+            ]
+        },
+        "analog": {
+            "topic": "temp"
+        }
+    }
+}

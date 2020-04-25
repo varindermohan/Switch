@@ -1,0 +1,16 @@
+{
+        "local_server": {
+                "enabled": "Yes",
+                "url": "192.168.1.100",
+                "access_token": "5678abcd",
+                "user_name": "localserver",
+                "password": "localpassword"
+        },
+        "remote_server": {
+                "enabled": "No",
+                "url": "varinder.com",
+                "access_token": "1234abcd",
+                "user_name": "remoteserver",
+                "password": "remotepassword"
+        }
+}

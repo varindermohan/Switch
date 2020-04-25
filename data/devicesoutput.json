@@ -1,0 +1,21 @@
+{
+  "devices_output": [
+    "Fan",
+    "Tube",
+    "Bulb",
+    "Plug",
+    "ElectricGysure",
+    "ElectricExhaust",
+    "ElectricChimney",
+    "AirConditioner",
+    "ElectricBell",
+    "MicrowaveOven",
+    "SpotLight",
+    "Television",
+    "Refrigerator",
+    "WaterPurifier",
+    "HomeTheater",
+    "AirPurifier",
+    "ElectricHeater"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "devices_output": [
+    "Sensor Voltage220V",
+    "Sensor (Temp Humidity)",
+    "Sensor (Movement Detector)",
+    "Sensor Acc GyroGY521",
+    "Sensor Door Sensor ",
+    "Sensor CO GAS",
+    "Sensor LPG GAS",
+    "Sensor Alcohol",
+    "Sensor Soil Moisture",
+    "Sensor IR",
+    "Sensor Ultrasonic",
+    "Sensor Current",
+    "Sensor Color"
+  ]
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <Title>
+        D'KuVa IOT Solutions
+    </Title>
+    <script type="text/javascript" src="index.js"> </script>
+    <link rel="stylesheet" type="text/css" href="portsettings.css">
+</head>
+<Body onload="loadwifipage()">
+    <table border="1" align="center" width=100% height=auto cellspacing="0">
+        <tr>
+            <td>
+
+                <p id="p1">
+                    <b><a href="index.html">Login Page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="wifisettings.html">Wifi settings &nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="mqttsettings.html">MQTT Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="serversettings.html">Database Server Settings&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="portsettings.html">Port settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="generalsettings.html">General settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></b>
+                    <b><a href="switch.html">Switch Page &nbsp;&nbsp;&nbsp;</a></b>
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor=red height=5%>
+            <td> &nbsp;</td>
+        </tr>
+        <tr bgcolor=White height=7% align="center">
+            <td style="font: 4em sans-serift;"><b>D'KuVa IOT Solutions</b></td>
+        </tr>
+        <tr bgcolor=green height=5% align="center" style="font: 2em sans-serift;">
+            <td><b>Wifi configuration</b></td>
+        </tr>
+        <tr>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:red; margin:10px;">Stored Wifi Networks </p><br>
+                <table id="myTable2" border="1" align="center" width=100% bgcolor="pink">
+                    <tr>
+                        <th> <b>SSID Name </b> </th>
+                        <th> <b> Password </b> </th>
+                        <th><b> Priority </b></th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width=65%>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:red; margin:10px;">Detected Wifi
+                    Networks </p><br>
+                <table id="myTable1" border="1" align="center" width=100% bgcolor="pink">
+                    <tr>
+                        <td><b>SSID Name</b></td>
+                        <td><b>Signal Strength</b></td>
+                        <td><b>Network Type</b></td>
+                    </tr>
+                </table>
+                <br>
+                <form action="updateSsidList">
+                    <button type "submit" style="margin-left: 30;" id="updatessidlist">Reload Nearby SSID List </button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:red; margin:10px;">Add Wifi Networks </p><br>
+                <table align="center" width=100% id="wifisettings" border="1" bgcolor="pink">
+                    <tr>
+                        <th> SSID Name</th>
+                        <th> Password</th>
+                        <th> Priority</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="selectwifi()" style="margin-left: 30;" id="updatessidlist">Update SSID
+                                List for Setting</button>
+                            <input onclick="fn1()" id="detectedssid1" type="radio" name="ssid_Sel" value="" checked>
+                            Select
+                            Detected SSID <select size="1" id="detectedssid" style="margin:5px" name="ssid_name1"
+                                sort="ascending">
+                            </select><br>
+                            <input onclick="fn1()" id="customssid1" type="radio" name="ssid_Sel" value=""> Custom SSID
+
+                            <Input style="margin:10px" id="customssid" type="text" placeholder="Custom SSID" name="">
+                        </td>
+                        <td align="center">
+                            <Input style="margin:5px" id="ssidPassword" type="text" placeholder="Password" name="">
+                        </td>
+                        <td align="center">
+                            <select id="priority" style="margin:5px" name="">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                        <td align="center">
+                            <button id="update3" onclick="addrow()">Insert Record</button>&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><br>
+                <p id="Uniquesiteid" style="font-size:26; text-align: center ; color:red; margin:10px;">Temporary Wifi Networks </p><br>
+                <table id="myTable5" border="1" align="center" width=100% bgcolor="pink">
+                    <th><b>SSID Name</b></th>
+                    <th><b>Password</b></th>
+                    <th><b>Priority</b></th>
+                </table>
+                <br>
+                <button style="margin-left: 30;" id="update2" onclick="updatewifissid()">Update Data in
+                    Chip</button>&nbsp;&nbsp;
+                <button id="update4" onclick="delwifiuname()">Delete Record</button><br>
+            </td>
+        </tr>
+    </table>
+</Body>
+</html>

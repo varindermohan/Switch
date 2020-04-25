@@ -1,0 +1,16 @@
+{
+    "port_no": "port9",
+    "gpio": "GPIO0",
+    "enable_status": "Enable",
+    "control": "Server",
+    "server": "Local Database Server",
+    "type_of_pin": "Switch",
+    "speed": 5,
+    "connected_device": "Fan-1",
+    "area": "Living Area-1",
+    "timer_type": "OnTime-Duration",
+    "on_time": "13:40",
+    "off_time_duration": "30",
+    "days": 0,
+    "mqtt_topic": "DC:4F:22:75:8C:65/Varinder's Home/Living Area/1/Fan/1"
+}

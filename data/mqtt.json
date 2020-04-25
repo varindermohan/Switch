@@ -1,0 +1,14 @@
+{
+    "lms_enabled": "Yes",
+    "lms_url": "192.168.1.111",
+    "lms_port": "1883",
+    "lms_auth": "0",
+    "lms_user_name": "",
+    "lms_password": "",
+    "rms_enabled": "Yes",
+    "rms_url": "broker.mqtt-dashboard.com",
+    "rms_port": "1883",
+    "rms_auth": "0",
+    "rms_user_name": "",
+    "rms_password": ""
+}

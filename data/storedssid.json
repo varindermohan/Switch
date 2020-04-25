@@ -1,0 +1,14 @@
+{
+    "stored_ssid": [
+        {
+            "ssid": "Net_Plus",
+            "password": "bsnl@123",
+            "priority": "1"
+        },
+        {
+            "ssid": "ITI",
+            "password": "bsnl@123",
+            "priority": "1"
+        }
+    ]
+}

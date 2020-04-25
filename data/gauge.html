@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gauge Test</title>
+    <script src="../gauge.js"></script>
+      <style>body {
+        padding: 20px;
+        margin: 0;
+        background: #fff
+    }</style>
+</head>
+<body>
+
+<a href="#" onclick="gaugePS.value=10">10</a>
+<a href="#" onclick="gaugePS.value=23">23</a>
+<a href="#" onclick="gaugePS.value=45">45</a>
+
+<hr>
+
+<canvas id="gauge-ps"></canvas>
+<canvas id="gauge-ps1"></canvas>
+
+
+<script>
+var gaugePS = new RadialGauge({
+    renderTo: 'gauge-ps',
+    width: 200,
+    height: 200,
+    units: 'Temp °C',
+    minValue: 0,
+    maxValue: 100,
+    majorTicks: ['0','20','40','60','80','100'
+    ],
+    minorTicks: 2,
+    ticksAngle: 270,
+    startAngle: 45,
+    strokeTicks: true,
+    highlights  : [
+        { from : 0,  to : 10, color : 'rgba(78,   78, 76, 0.5)' },
+        { from : 10,  to : 40, color : 'rgba(0,200,0, 0.5)' },
+        { from : 40, to : 100, color : 'rgba(225, 7, 23, 0.75)' }
+    ],
+ 
+});
+var gaugePS1 = new LinearGauge({
+    renderTo: 'gauge-ps1',
+    width: 400,
+    height: 200,
+    units: 'Humidity %',
+    minValue: 0,
+    maxValue: 100,
+    majorTicks: ['0','20','40','60','80','100'
+    ],
+    minorTicks: 2,
+    ticksAngle: 270,
+    startAngle: 45,
+    strokeTicks: true,
+    highlights  : [
+        { from : 0,  to : 10, color : 'rgba(255,255, 100, 0.5)'},
+        { from : 10,  to : 40, color : 'rgba(0,200,0, 0.5)' },
+        { from : 40, to : 100, color : 'rgba(225, 7, 23, 0.75)' }
+    ],
+ 
+});
+gaugePS.draw();
+gaugePS.value = "20";
+gaugePS1.draw();
+gaugePS1.value = "20";
+
+</script>
+
+</body>
+</html>

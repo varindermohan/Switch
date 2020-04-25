@@ -1,0 +1,14 @@
+{
+    "detected_ssid": [
+        {
+            "ssid": "One Plus5",
+            "signal": -53,
+            "type": "Open "
+        },
+        {
+            "ssid": "Net_Plus",
+            "signal": -65,
+            "type": "Protected"
+        }
+    ]
+}

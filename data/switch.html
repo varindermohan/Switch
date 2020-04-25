@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: powderblue;
+    }
+
+    h1 {
+      color: blue;
+    }
+
+    p {
+      color: red;
+    }
+
+    /* SWITCH */
+    .cube-switch {
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 100px 50px rgba(255, 255, 255, 0.1);
+      /* Prevents clics on the back */
+      cursor: default;
+      display: none;
+      height: 75px;
+      position: relative;
+      overflow: hidden;
+      /* Prevents clics on the back */
+      pointer-events: none;
+      width: 75px;
+      white-space: nowrap;
+      background: rgba(224, 113, 210, 0.863);
+      margin: 15px;
+    }
+
+    /* The switch */
+    .cube-switch .switch {
+      border: 1px solid rgba(0, 0, 0, 0.6);
+      border-radius: 0.7em;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -7px 0 rgba(0, 0, 0, 0.2),
+        inset 0 50px 10px rgba(0, 0, 0, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.2);
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-left: -30px;
+      margin-top: -30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+
+      background: rgba(230, 79, 79, 0.644);
+      transition: all 0.2s ease-out;
+      /* Allows click */
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    /* SWITCH Active State */
+    .cube-switch.active {
+      /*background:#222;
+  box-shadow:
+  0 0 5px rgba(0,0,0,0.5),
+  inset 0 50px 50px rgba(55,55,55,0.1);*/
+    }
+
+    .cube-switch.active .switch {
+      background: rgb(28, 187, 89);
+      box-shadow:
+        inset 0 6px 0 rgba(255, 255, 255, 0.1),
+        inset 0 7px 0 rgba(0, 0, 0, 0.2),
+        inset 0 -50px 10px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(205, 205, 205, 0.1);
+    }
+
+    .cube-switch.active:after,
+    .cube-switch.active:before {
+      background: rgb(84, 241, 123);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 1px 2px 1px rgba(0, 0, 0, 0.5),
+        inset 3px 6px 2px rgba(200, 200, 200, 0.1),
+        inset -1px -2px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .cube-switch.active .switch:after,
+    .cube-switch.active .switch:before {
+      background: rgb(122, 245, 129);
+      border: none;
+      margin-top: 0;
+      height: 1px;
+    }
+
+    .cube-switch .switch-state {
+      display: block;
+      position: absolute;
+      left: 40%;
+      color: #FFF;
+      font-size: .5em;
+      text-align: center;
+    }
+
+    /* SWITCH On State */
+    .cube-switch .switch-state.on {
+      bottom: 15%;
+    }
+
+    /* SWITCH Off State */
+    .cube-switch .switch-state.off {
+      top: 15%;
+    }
+  </style>
+  <title>Manual User Control and Display</title>
+  <script src="../gauge.js"></script>
+</head>
+
+<body onload="loadswpage()">
+  <br>
+  <br>
+  <center>
+    <table border="3" align="center" width=100% height=auto cellspacing="0">
+      <tr bgcolor=red height=5%>
+        <td> &nbsp;</td>
+      </tr>
+      <tr bgcolor=White height=7% align="center">
+        <td style="font: 4em sans-serift;"><b>D'KuVa IOT Solutions</b></td>
+      </tr>
+      <tr bgcolor=green height=5% align="center" style="font: 2em sans-serift;">
+        <td><b>User Panel</b></td>
+      </tr>
+    </table>
+
+    <table border="3" align="center" width=100% height=auto cellspacing="0">
+      <tr>
+        <td align="center" width=50%>
+          <h3> Temperature</h3>
+          <canvas id="gauge-ps1"></canvas>
+
+        </td>
+        <td align="center" width=50%>
+          <h3> Humidity</h3>
+          <canvas id="gauge-ps"></canvas>
+        </td>
+      </tr>
+    </table>
+    <table border="3" align="center" width=100% height=auto cellspacing="0">
+      <tr>
+        <td rowspan=2>
+          <h1 align="center"> Status</h1><hr>
+          <table border="0" width=100% cellspacing="0" height=auto >
+            
+            <tr>
+              <td>
+                Connected Network
+              </td>
+              <td>
+                <label id="ConnectedNetwork"> No IP</label>
+              </td>
+              </tr>
+            <tr>
+              <td>
+                IP Address
+              </td>
+              <td>
+                <label id="IpAddress"> No IP</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Signal Strength
+              </td>
+              <td>
+                <label id="WifiSignalStrength"> Nil</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                AP SSID
+              </td>
+              <td>
+                <label id="ApSsid">No AP</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                AP IP
+              </td>
+              <td> <label id="ApIp">NO IP</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Local Server Status
+              </td>
+              <td><label id="LocalServer"> Connected</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Remote Server Status
+              </td>
+              <td><label id="RemoteServer"> Connected</label>
+              </td>
+            </tr>
+            
+          </table>
+        </td>
+
+
+
+
+        <td align="center">
+          <h3 id="sw1"> Switch 1</h3>
+          <div href="" class="cube-switch active" id="cube-switch" onclick="switchPress()">
+            <span class="switch">
+              <span class="switch-state off">OFF</span>
+              <span class="switch-state on">ON</span>
+            </span>
+          </div>
+        </td>
+
+        <td align="center">
+          <h3 id="sw2"> Switch 2</h3>
+          <div href="" class="cube-switch active" id="cube-switch1" onclick="switchPress1()">
+            <span class="switch">
+              <span class="switch-state off">OFF</span>
+              <span class="switch-state on">ON</span>
+            </span>
+
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <h3 id="sw3"> Switch 3</h3>
+          <div href="" class="cube-switch active" id="cube-switch2" onclick="switchPress2()">
+            <span class="switch">
+              <span class="switch-state off">OFF</span>
+              <span class="switch-state on">ON</span>
+            </span>
+
+          </div>
+        </td>
+
+
+        <td align="center">
+          <h3 id="sw4"> Switch 4</h3>
+          <div href="" class="cube-switch active" id="cube-switch3" onclick="switchPress3()">
+            <span class="switch">
+              <span class="switch-state off">OFF</span>
+              <span class="switch-state on">ON</span>
+            </span>
+
+          </div>
+        </td>
+
+      </tr>
+    </table>
+
+  </center>
+  <script>
+    var wsconnection;
+    window.onbeforeunload = function () {
+      wsconnection.onclose = function () { }; // disable onclose handler first
+      wsconnection.close()
+    };
+    var gaugePS = new RadialGauge({
+      renderTo: 'gauge-ps',
+      width: 300,
+      height: 300,
+      units: 'Humidity %',
+      minValue: 0,
+      maxValue: 100,
+      majorTicks: ['0','10','20','30','40','50','60','70','80','90','100'],
+      minorTicks: 2,
+      ticksAngle: 270,
+      startAngle: 45,
+      strokeTicks: true,
+      highlights: [
+        { from: 0, to: 30, color: 'rgba(78,   78, 76, 0.5)' },
+        { from: 30, to: 65, color: 'rgba(0,200,0, 0.5)' },
+        { from: 65, to: 100, color: 'rgba(225, 7, 23, 0.75)' }
+      ],
+
+    });
+    var gaugePS1 = new RadialGauge({
+      renderTo: 'gauge-ps1',
+      width: 300,
+      height: 300,
+      units: 'Temperature °C',
+      minValue: 0,
+      maxValue: 100,
+      majorTicks: ['0','10', '20','30', '40','50', '60','70'],
+      minorTicks: 2,
+      ticksAngle: 270,
+      startAngle: 45,
+      strokeTicks: true,
+      highlights: [
+        { from: 0, to: 14, color: 'rgba(255,255, 100, 0.5)' },
+        { from: 14, to: 50, color: 'rgba(0,200,0, 0.5)' },
+        { from: 50, to: 100, color: 'rgba(225, 7, 23, 0.75)' }
+      ],
+
+    });
+    gaugePS.draw();
+    //gaugePS.value = "20";
+    gaugePS1.draw();
+    //gaugePS1.value = "20";
+    function switchPress() {
+      if (document.getElementById("cube-switch").className == "cube-switch active") {
+        wsconnection.send('0');//Send off
+      } else if (document.getElementById("cube-switch").className == "cube-switch") {
+        wsconnection.send('1');//Send off
+      }
+    }
+
+    function switchPress1() {
+      if (document.getElementById("cube-switch1").className == "cube-switch active") {
+        wsconnection.send('2');//Send off
+
+      } else if (document.getElementById("cube-switch1").className == "cube-switch") {
+        wsconnection.send('3');//Send off
+
+      }
+
+    }
+    function switchPress2() {
+      if (document.getElementById("cube-switch2").className == "cube-switch active") {
+        wsconnection.send('4');//Send off
+
+      } else if (document.getElementById("cube-switch2").className == "cube-switch") {
+        wsconnection.send('5');//Send off
+
+      }
+
+    }
+    function switchPress3() {
+      if (document.getElementById("cube-switch3").className == "cube-switch active") {
+        wsconnection.send('6');//Send off
+
+      } else if (document.getElementById("cube-switch3").className == "cube-switch") {
+        wsconnection.send('7');//Send off
+
+      }
+
+    }
+
+    function readport1data() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.getElementById("sw1").innerHTML = myObj.connected_device + " (" + myObj.area + ")";
+
+          console.log(myObj.connected_device + " (" + myObj.area + ")")
+
+        }
+      };
+      xmlhttp.open("GET", "port1.json", true);
+      xmlhttp.send();
+    }
+    function readport2data() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.getElementById("sw2").innerHTML = myObj.connected_device + " (" + myObj.area + ")";
+
+          console.log(myObj.connected_device + " (" + myObj.area + ")")
+
+        }
+      };
+      xmlhttp.open("GET", "port2.json", true);
+      xmlhttp.send();
+    }
+    function readport3data() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.getElementById("sw3").innerHTML = myObj.connected_device + " (" + myObj.area + ")";
+
+          console.log(myObj.connected_device + " (" + myObj.area + ")")
+
+        }
+      };
+      xmlhttp.open("GET", "port3.json", true);
+      xmlhttp.send();
+    }
+    function readport4data() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.getElementById("sw4").innerHTML = myObj.connected_device + " (" + myObj.area + ")";
+
+          console.log(myObj.connected_device + " (" + myObj.area + ")")
+
+        }
+      };
+      xmlhttp.open("GET", "port4.json", true);
+      xmlhttp.send();
+    }
+
+    function loadswpage() {
+      createWs();
+      readport1data();
+      readport2data();
+      readport3data();
+      readport4data();
+    }
+    function createWs() {
+      wsconnection = new WebSocket('ws://' + location.hostname + ':81/', ['arduino']);
+      wsconnection.onopen = function () {
+        document.getElementById("cube-switch").className = "cube-switch";
+        document.getElementById("cube-switch").style.display = "block";
+        document.getElementById("cube-switch1").className = "cube-switch";
+        document.getElementById("cube-switch1").style.display = "block";
+        document.getElementById("cube-switch2").className = "cube-switch";
+        document.getElementById("cube-switch2").style.display = "block";
+        document.getElementById("cube-switch3").className = "cube-switch";
+        document.getElementById("cube-switch3").style.display = "block";
+        wsconnection.send('Connect ' + new Date());
+      };
+      wsconnection.onerror = function (error) {
+        console.log('WebSocket Error ', error);
+      };
+      wsconnection.onmessage = function (e) {
+        console.log('Server: ', e.data);
+        try {
+          var res = JSON.parse(e.data);
+          document.getElementById("ConnectedNetwork").innerHTML=res.devices[0].ConnectedNetwork;
+          document.getElementById("IpAddress").innerHTML=res.devices[0].IpAddress;
+          document.getElementById("ApSsid").innerHTML=res.devices[0].ApSsid;
+          document.getElementById("ApIp").innerHTML=res.devices[0].ApIp;
+          document.getElementById("LocalServer").innerHTML=res.devices[0].LocalServer;
+          document.getElementById("RemoteServer").innerHTML=res.devices[0].RemoteServer;
+          document.getElementById("WifiSignalStrength").innerHTML=res.devices[0].WifiSignalStrength;
+
+
+          gaugePS.value = res.devices[0].roomhumidity;
+          gaugePS1.value = res.devices[0].roomtemperature;
+          if (res.devices[0].state1 == "on") {
+            document.getElementById("cube-switch").className = "cube-switch active";
+          }
+          else if (res.devices[0].state1 == "off") {
+            document.getElementById("cube-switch").className = "cube-switch";
+          }
+          if (res.devices[0].state2 == "on") {
+            document.getElementById("cube-switch1").className = "cube-switch active";
+          }
+          else if (res.devices[0].state2 == "off") {
+            document.getElementById("cube-switch1").className = "cube-switch";
+          }
+          if (res.devices[0].state3 == "on") {
+            document.getElementById("cube-switch2").className = "cube-switch active";
+          }
+          else if (res.devices[0].state3 == "off") {
+            document.getElementById("cube-switch2").className = "cube-switch";
+          }
+          if (res.devices[0].state4 == "on") {
+            document.getElementById("cube-switch3").className = "cube-switch active";
+          }
+          else if (res.devices[0].state4 == "off") {
+            document.getElementById("cube-switch3").className = "cube-switch";
+          }
+
+        }
+        catch (err) {
+          //  console.log("ERR:"+err.message);
+        }
+
+      };
+    }
+  </script>
+</body>
+
+</html>
